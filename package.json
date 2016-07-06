@@ -1,0 +1,16 @@
+{
+  "name": "activity",
+  "version": "1.0.0",
+  "description": "Chase activity aggregator",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js",
+    "test": "npm test"
+  },
+  "author": "Blaine Schmeisser",
+  "license": "MIT",
+  "dependencies": {
+    "csv": "^1.1.0",
+    "json2csv": "^3.5.1"
+  }
+}
