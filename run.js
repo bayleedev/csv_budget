@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const csv = require('dank-csv')
+const csv = require('csv-parse/lib/sync')
 const json2csv = require('json2csv')
 
 const files = fs.readdirSync('./input').map((file) => {
@@ -8,7 +8,7 @@ const files = fs.readdirSync('./input').map((file) => {
 })
 
 const output = files.reduce((memo, file) => {
-  csv(fs.readFileSync(file, 'utf8')).forEach((row) => {
+  csv(fs.readFileSync(file, 'utf8'), { columns: true }).forEach((row) => {
     if (['SALE', 'DEBIT', 'CREDIT'].indexOf(row['Type']) !== -1) {
       const description = removeQuotes(row['Description'])
       memo.push({
